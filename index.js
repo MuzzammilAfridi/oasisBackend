@@ -7,18 +7,24 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload')
+const path = require('path')
 
 
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/oasis')
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGO_URI)
 .then(()=>console.log("mongo db is connected Successfully")
 ).catch((err)=>{
-    console.log(err);
+    console.log(err); 
     
-})
+})  
 
 const app = experss()
+
+// const _dirname = path.resolve();
+
 app.use(cookieParser())
 app.use(experss.json())
 app.use(bodyParser.json());
@@ -34,7 +40,14 @@ app.use(fileUpload({
 app.use('/', userRoutes)
 app.use('/product', productRoutes)
 
-app.listen(7070, ()=>{
-    console.log("Server is working");
-    
-})
+// app.use(experss.static(path.join(_dirname, "/Oasis/dist")))
+// app.get('*', (req, res)=>{
+//     res.sendFile(path.resolve(_dirname, "Oasis", "dist", "index.html"))
+// })
+
+const PORT = process.env.PORT || 7070;
+const HOST = '0.0.0.0';
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhot:${PORT}`);
+});
