@@ -1,5 +1,6 @@
 
 const express = require('express');
+const serverless = require('serverless-http');
 const mongoose = require('mongoose')
 const userRoutes = require('../routes/userRoutes')
 const productRoutes = require('../routes/productRoutes')
@@ -45,9 +46,9 @@ app.use('/product', productRoutes)
 //     res.sendFile(path.resolve(_dirname, "Oasis", "dist", "index.html"))
 // })
 
-const PORT = process.env.PORT || 7070;
-console.log(`Server is ready for Vercel deployment on PORT ${PORT}`);
-module.exports = app;
+// const PORT = process.env.PORT || 7070;
+// console.log(`Server is ready for Vercel deployment on PORT ${PORT}`);
+module.exports = serverless(app);
 
 
 
