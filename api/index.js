@@ -1,6 +1,5 @@
 
-const express = require('express');
-const serverless = require('serverless-http');
+const experss = require('express')
 const mongoose = require('mongoose')
 const userRoutes = require('../routes/userRoutes')
 const productRoutes = require('../routes/productRoutes')
@@ -22,12 +21,12 @@ mongoose.connect(process.env.MONGO_URI)
     
 })  
 
-const app = express()
+const app = experss()
 
 // const _dirname = path.resolve();
 
 app.use(cookieParser())
-app.use(express.json())
+app.use(experss.json())
 app.use(bodyParser.json());
 app.use(cors({
     origin : ['http://localhost:5173'],
@@ -46,10 +45,16 @@ app.use('/product', productRoutes)
 //     res.sendFile(path.resolve(_dirname, "Oasis", "dist", "index.html"))
 // })
 
-// const PORT = process.env.PORT || 7070;
-// console.log(`Server is ready for Vercel deployment on PORT ${PORT}`);
-module.exports = serverless(app);
+module.exports = (req, res) => {
+    app(req, res);
+  };
 
+const PORT = process.env.PORT || 7070;
+const HOST = '0.0.0.0';
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhot:${PORT}`);
+});
 
 
 
