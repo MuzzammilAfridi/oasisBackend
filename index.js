@@ -1,8 +1,8 @@
 
 const experss = require('express')
 const mongoose = require('mongoose')
-const userRoutes = require('../routes/userRoutes')
-const productRoutes = require('../routes/productRoutes')
+const userRoutes = require('./routes/userRoutes')
+const productRoutes = require('./routes/productRoutes')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser');
