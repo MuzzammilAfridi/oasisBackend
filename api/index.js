@@ -45,9 +45,7 @@ app.use('/product', productRoutes)
 //     res.sendFile(path.resolve(_dirname, "Oasis", "dist", "index.html"))
 // })
 
-module.exports = (req, res) => {
-    app(req, res);
-  };
+
 
 const PORT = process.env.PORT || 7070;
 const HOST = '0.0.0.0';
@@ -55,6 +53,10 @@ const HOST = '0.0.0.0';
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhot:${PORT}`);
 });
+
+module.exports = (req, res) => {
+  app(req, res);
+};
 
 
 
