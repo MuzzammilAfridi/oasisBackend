@@ -33,9 +33,7 @@ app.use(cors({
     methods : ['GET', 'POST'],
     credentials : true
 }))
-app.use(fileUpload({
-    useTempFiles : true
-  }))
+
 
 app.use('/', userRoutes)
 app.use('/product', productRoutes)
