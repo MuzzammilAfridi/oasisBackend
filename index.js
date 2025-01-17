@@ -28,12 +28,19 @@ const app = express()
 app.use(cookieParser())
 app.use(express.json())
 app.use(bodyParser.json());
-const corsOptions = {
-    origin: 'https://oasis-rho-pink.vercel.app',  // Add your frontend URL here
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,  // If you are using cookies or authentication
-};
-app.use(cors(corsOptions));
+app.use(cors({
+    // origin : ['https://oasis-rho-pink.vercel.app'],
+    origin : ['https://oasis-rho-pink.vercel.app'],
+    methods : ['GET', 'POST'],
+    credentials : true
+}))
+
+// const corsOptions = {
+//     origin: 'https://oasis-rho-pink.vercel.app',  // Add your frontend URL here
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials: true,  // If you are using cookies or authentication
+// };
+// app.use(cors(corsOptions));
 
 
 app.use('/', userRoutes)
