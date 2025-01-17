@@ -43,6 +43,8 @@ app.use(cors({
     credentials : true
 }))
 
+app.options('*', cors())
+
 // const corsOptions = {
 //     origin: 'https://oasis-rho-pink.vercel.app',  // Add your frontend URL here
 //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
