@@ -5,14 +5,15 @@
   "scripts": {
     "dev": "nodemon index.js",
     "build": "npm install && npm install --prefix Oasis && npm run build --prefix Oasis",
-    "start": "node index.js"
+    "start": "node index.js",
+    "postinstall": "npm rebuild bcrypt --build-from-source"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
     "cloudinary": "^2.5.1",
     "cookie-parser": "^1.4.7",
