@@ -56,7 +56,7 @@ app.options('*', cors())
 //     credentials: true,  // If you are using cookies or authentication
 // };
 // app.use(cors(corsOptions));  
-
+  
 
 app.use('/', userRoutes)
 app.use('/product', productRoutes)
