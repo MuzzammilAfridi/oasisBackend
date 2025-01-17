@@ -40,7 +40,7 @@ app.use(cors({
 //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //     credentials: true,  // If you are using cookies or authentication
 // };
-// app.use(cors(corsOptions));
+// app.use(cors(corsOptions));  
 
 
 app.use('/', userRoutes)
