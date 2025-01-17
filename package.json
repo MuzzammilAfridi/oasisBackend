@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "build": "npm install && npm install --prefix Oasis && npm run build --prefix Oasis",
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
