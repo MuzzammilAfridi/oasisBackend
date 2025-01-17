@@ -29,7 +29,8 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(bodyParser.json());
 app.use(cors({
-    origin : ['http://localhost:5173'],
+    origin : ['https://oasis-rho-pink.vercel.app'],
+    // origin : ['http://localhost:5173'],
     methods : ['GET', 'POST'],
     credentials : true
 }))
