@@ -58,7 +58,7 @@ app.options('*', cors())
 // app.use(cors(corsOptions));  
   
 
-app.use('/', userRoutes)
+app.use('/', userRoutes) 
 app.use('/product', productRoutes)
 
 // app.use(experss.static(path.join(_dirname, "/Oasis/dist")))

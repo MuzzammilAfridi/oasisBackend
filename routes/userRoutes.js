@@ -103,7 +103,7 @@ router.get('/', (req, res)=>{
     res.send("hii this is Lassun fassun")
 })
 router.get('/lassun', (req, res)=>{
-    res.send("hii this is Lassun fassun bhai tere nhi pta hoga")
+    res.send("hii this is Lassun  bhai tere nhi pta hoga")
 })
 
 
