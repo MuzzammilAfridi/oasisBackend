@@ -54,9 +54,12 @@ app.options('*', cors())
 //     origin: 'https://oasis-rho-pink.vercel.app',  // Add your frontend URL here
 //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //     credentials: true,  // If you are using cookies or authentication
-// };
+// };   
 // app.use(cors(corsOptions));  
   
+
+
+
 
 app.use('/', userRoutes) 
 app.use('/product', productRoutes)
