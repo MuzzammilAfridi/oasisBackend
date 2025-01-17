@@ -105,9 +105,7 @@ router.get('/', (req, res)=>{
 router.get('/lassun', (req, res)=>{
     res.send("hii this is Lassun fassun bhai tere nhi pta hoga")
 })
-router.get('/', (req, res)=>{
-    res.send("hii this is Lassun fassun")
-})
+
 
 router.post('/register', async (req, res) => {
     try {
