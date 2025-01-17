@@ -28,6 +28,14 @@ const app = express()
 app.use(cookieParser())
 app.use(express.json())
 app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://oasis-rho-pink.vercel.app'); // Allow your frontend origin
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST'); // Allow required HTTP methods
+    res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials (cookies, authorization headers, etc.)
+    next();
+  });
+
 app.use(cors({
     // origin : ['https://oasis-rho-pink.vercel.app'],
     origin : ['https://oasis-rho-pink.vercel.app'],
