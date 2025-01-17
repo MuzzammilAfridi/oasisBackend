@@ -1,5 +1,5 @@
 
-const experss = require('express')
+const express = require('express')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/userRoutes')
 const productRoutes = require('./routes/productRoutes')
@@ -21,12 +21,12 @@ mongoose.connect(process.env.MONGO_URI)
     
 })  
 
-const app = experss()
+const app = express()
 
 // const _dirname = path.resolve();
 
 app.use(cookieParser())
-app.use(experss.json())
+app.use(express.json())
 app.use(bodyParser.json());
 app.use(cors({
     origin : ['http://localhost:5173'],
