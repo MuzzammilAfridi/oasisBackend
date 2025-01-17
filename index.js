@@ -54,9 +54,6 @@ app.listen(PORT, () => {
     console.log(`Server is running on http://localhot:${PORT}`);
 });
 
-module.exports = (req, res) => {
-  app(req, res);
-};
 
 
 
