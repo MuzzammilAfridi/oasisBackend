@@ -231,6 +231,8 @@ router.get('/logout', (req, res)=>{
 router.post('/admin',isAdmin, async (req, res) => {
   const { name, price, description } = req.body;
   const file = req.files?.file; // Optional chaining to ensure file exists
+  console.log(file , name, price);
+  
 
   if (!file) {
     return res.status(400).json({ success: false, message: 'File is required' });

@@ -28,6 +28,8 @@ const app = express()
 app.use(cookieParser())
 app.use(express.json())
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true })); // For form URL-encoded data
+app.use(fileUpload({ useTempFiles: true })); // For file uploads
 
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', 'https://oasis-rho-pink.vercel.app'); // Allow your frontend origin
@@ -45,10 +47,12 @@ app.use(bodyParser.json());
 //     credentials : true
 // }))
 
-app.use(cors({ origin: 'https://oasis-rho-pink.vercel.app' }));
+app.use(cors({ origin: 'https://oasis-rho-pink.vercel.app',
+    credentials: true, 
+ }));
 
 
-app.options('*', cors())
+// app.options('*', cors())
 
 // const corsOptions = {
 //     origin: 'https://oasis-rho-pink.vercel.app',  // Add your frontend URL here
@@ -75,9 +79,58 @@ const PORT = process.env.PORT || 7070;
 const HOST = '0.0.0.0';
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhot:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 
 
 
+
+
+
+// const express = require('express');
+// const mongoose = require('mongoose');
+// const userRoutes = require('./routes/userRoutes');
+// const productRoutes = require('./routes/productRoutes');
+// const cors = require('cors');
+// const cookieParser = require('cookie-parser');
+// const bodyParser = require('body-parser');
+// require('dotenv').config();
+
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() => console.log('MongoDB is connected successfully'))
+//   .catch((err) => console.log(err));
+
+// const app = express();
+
+// const allowedOrigins = ['https://oasis-rho-pink.vercel.app', 'http://localhost:5173'];
+
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error('Not allowed by CORS'));
+//       }
+//     },
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials: true,
+//   })
+// );
+
+// app.use(cookieParser());
+// app.use(express.json());
+// app.use(bodyParser.json());
+
+// // Routes
+// app.use('/', userRoutes);
+// app.use('/product', productRoutes);
+
+// const PORT = process.env.PORT || 7070;
+// const HOST = '0.0.0.0';
+
+// app.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
